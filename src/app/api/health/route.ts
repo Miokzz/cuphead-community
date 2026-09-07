@@ -1,0 +1,10 @@
+import { NextResponse } from "next/server";
+import { hasSupabaseEnv } from "@/lib/supabase/env";
+
+export function GET() {
+  return NextResponse.json({
+    ok: true,
+    service: "cup-club",
+    database: hasSupabaseEnv() ? "supabase-configured" : "demo-mode"
+  });
+}
